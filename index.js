@@ -17,6 +17,15 @@ app.use(cors());
 
 let Users = [];
 
+app.get("/", routeFunction);
+
+function routeFunction(req, res) {
+   console.log("Cron job started");
+   res.status(200).json({ message: "GET successful" });
+   
+  // socket.disconnect()
+}
+
 io.on("connection", (socket) => {
   console.log("got a connection");
 
