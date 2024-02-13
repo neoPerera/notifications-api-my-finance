@@ -2,11 +2,12 @@ var express = require("express");
 var app = express();
 var server = require("http").Server(app);
 var socketIo = require("socket.io");
+require("dotenv").config();
 const cors = require("cors");
 const PORT = process.env.PORT || 3005;
 var io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000", // Replace with your client's URL
+    origin: process.env.URL, // Replace with your client's URL
     methods: ["GET", "POST"],
   },
 });
